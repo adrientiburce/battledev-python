@@ -1,6 +1,4 @@
-
-
-# Battle Deb with python 
+# Battle Dev with python 
 
 > Simply run and test your code with datasets provided by the Battle Dev.
 
