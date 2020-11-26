@@ -15,35 +15,32 @@ if(len(inputFilenamesList) != len(outputFilenamesList)):
     exit()
 
 currentTest = 1
-success = True
 
 for filename in inputFilenamesList:
-    while(success):
-        print('=======[ Test {} ]======='.format(currentTest))
-        with open(filename, "r") as file: 
-            lines = []
-            for line in file:
-                lines.append(line.rstrip('\n'))
-        # response from output.txt
-        fileResponse = open(outputFilenamesList[currentTest-1])
-        responseExcepted = fileResponse.read()
+    print('=======[ Test {} ]======='.format(currentTest))
+    lines = []
+    with open(filename, "r") as file: 
+        for line in file:
+            lines.append(line.rstrip('\n'))
+    # response from output.txt
+    fileResponse = open(outputFilenamesList[currentTest-1])
+    responseExcepted = fileResponse.read()
 
-        # get user response from stdout
-        f = io.StringIO()
-        with redirect_stdout(f):
-            code.response(lines)
-        userResponse = str.rstrip((f.getvalue()))
+    # get user response from stdout
+    f = io.StringIO()
+    with redirect_stdout(f):
+        code.response(lines)
+    userResponse = str.rstrip((f.getvalue()))
+    f.close()
 
-        if len(userResponse) == 0:
-            print('❌ ERREUR: Aucune sortie reçue.')
-            success = False
-        elif (userResponse != responseExcepted):
-            print('Résultat obtenue : \n {}'.format(userResponse))
-            print('❌ ERREUR : {} != {}'.format(userResponse, responseExcepted))
-            print(''.format(currentTest))
-            success = False
-        else:
-            print('✅ Test {} réussi'.format(currentTest))
+    if len(userResponse) == 0:
+        print('❌ ERREUR: Aucune sortie reçue.')
+    elif (userResponse != responseExcepted):
+        print('Résultat obtenue : \n {}'.format(userResponse))
+        print('❌ ERREUR : {} != {}'.format(userResponse, responseExcepted))
+        print(''.format(currentTest))
+    else:
+        print('✅ Test {} réussi'.format(currentTest))
 
-        # post test task
-        currentTest += 1
+    # post test task
+    currentTest += 1

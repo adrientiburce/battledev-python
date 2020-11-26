@@ -5,7 +5,7 @@
 
 ### How to use it 
 
-- test files *.txt in tests/ folder
-- write your code in the `reponse` function in `main.py`
-- Run main.py
+- Put your test files in the tests/ folder
+- Write your code in the `reponse` function in `main.py`
+- Run main.py : `python main.py`
 

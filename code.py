@@ -9,7 +9,7 @@ def response(lines):
     if os1 == os2:
         same = True
         production = 3
-        while(same & line <= lines[0]):
+        while(same):
             if lines[production].split(' ')[1] == os1:
                 production += 1
             else:
