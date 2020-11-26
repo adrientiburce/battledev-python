@@ -1,7 +1,6 @@
 import glob
 import io
 from contextlib import redirect_stdout
-
 import code
 
 inputFilenamesList = sorted(glob.glob('tests/input*.txt'))
@@ -17,7 +16,6 @@ if(len(inputFilenamesList) != len(outputFilenamesList)):
 
 currentTest = 1
 success = True
-
 
 for filename in inputFilenamesList:
     while(success):
