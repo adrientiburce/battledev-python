@@ -4,9 +4,10 @@
 # * Use sys.stderr.write() to display debugging information to STDERR
 # * ***/
 import sys
+from operator import xor
 
 lines = []
 for line in sys.stdin:
     lines.append(line.rstrip('\n'))
 
-# write your code here
+# write your code here :

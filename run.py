@@ -5,18 +5,17 @@ inputFiles = sorted(glob.glob('tests/input*.txt'))
 outputFiles = sorted(glob.glob('tests/output*.txt'))
 
 if len(inputFiles) == 0:
-    print("/!\ Ajouter des fichiers de tests dans / tests /!\ ")
+    print("== Ajouter des jeux de tests dans /tests == ")
     exit()
 
 if len(inputFiles) != len(outputFiles):
-    print("/!\ Nombre de fichiers Input/Output différent /!\ ")
+    print("== Nombre de fichiers input/output différent ==")
     exit()
 
 success = 0
 resMessage = ""
 
 for filename in inputFiles:
-    print(filename)
     n = int(filename[len("tests/input"):-4])
     output = subprocess.check_output(
         f"python solution.py < {filename}", shell=True)
